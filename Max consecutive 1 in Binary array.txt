@@ -1,0 +1,25 @@
+class Fun{
+	int profit(int[] arr){
+		int max=Integer.MIN_VALUE;
+		int count=0;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]==1){
+				count=count+1;
+				if(count>max){
+					max=count;
+				}
+			}
+			else{
+				count=0;
+			}
+		}
+        return max;		
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,0,1,1,1,1,0,1,1};
+		System.out.println(obj.profit(arr));
+	}
+}

@@ -1,0 +1,45 @@
+/*
+import java.util.*;
+class Fun{
+	void removeDuplicates(int[] arr){
+		LinkedHashSet<Integer> lhs=new LinkedHashSet<>();
+		for(int i=0;i<arr.length;i++){
+			lhs.add(arr[i]);
+		}
+		//Result
+		for(int x:lhs){
+		System.out.print(x+" ");
+	   }
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,2,2,3,4,4,4,5};
+		obj.removeDuplicates(arr);
+	}
+}
+*/
+class Fun{
+	void removeDuplicates(int[] arr){
+		int index=0;
+		for(int i=1;i<arr.length;i++){
+			if(arr[i]!=arr[i-1]){
+				index=index+1;
+				arr[index]=arr[i];
+			}
+		}
+		//Result
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]+" ");
+		}
+		
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,2,2,3,4,4,4,5};
+		obj.removeDuplicates(arr);
+	}
+}

@@ -1,0 +1,23 @@
+import java.util.*;
+class Fun{
+	int windowSum(int[] arr,int k){
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<=arr.length-k;i++){
+			int count=0;
+			for(int j=i;j<i+k;j++){
+				count=count+arr[j];
+			}
+			if(count>max){
+				max=count;
+			}
+		}
+		return max;
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,8,30,-5,20,7};
+		System.out.println(obj.windowSum(arr,3));
+	}
+}

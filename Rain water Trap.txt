@@ -1,0 +1,40 @@
+class Fun{
+	int profit(int[] arr){
+		int[] maxLeft=new int[arr.length];
+		int[] maxRight=new int[arr.length];
+		int left=Integer.MIN_VALUE;
+		int right=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]>left){
+				left=arr[i];
+			}
+			maxLeft[i]=left;
+		}
+		for(int i=arr.length-1;i>=0;i--){
+			if(arr[i]>right){
+				right=arr[i];
+			}
+			maxRight[i]=right;
+		}
+		//calulating water on each tiles vertically.
+		int store=0;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]<maxLeft[i] && arr[i]<maxLeft[i]){
+				if(maxLeft[i]<maxRight[i]){
+					store=store+maxLeft[i]-arr[i];
+				}
+				else{
+					store=store+maxRight[i]-arr[i];
+				}
+			}
+		}
+		return store;	
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={3,1,2,4,0,1,3,2};
+		System.out.println(obj.profit(arr));
+	}
+}

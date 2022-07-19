@@ -1,0 +1,53 @@
+//can buy and sell only once
+//1.Brute Force.
+class Fun{
+	int profit(int[] arr){
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[j]-arr[i]>max){
+					max=arr[j]-arr[i];
+				}
+			}
+		}
+		return max;
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,5,9,3,8,6};
+		System.out.println(obj.profit(arr));
+	}
+}
+
+//2.O(n) space.
+/*
+class Fun{
+	int profit(int[] arr){
+		int[] maxRight=new int[arr.length];
+		int max=Integer.MIN_VALUE;
+		for(int i=arr.length-1;i>=0;i--){
+			if(arr[i]>max){
+				max=arr[i];
+			}
+			maxRight[i]=max;
+		}
+		//calculating profit
+		int money=0;
+		for(int i=0;i<arr.length;i++){
+			if(maxRight[i]-arr[i]>money){
+				money=maxRight[i]-arr[i];
+			}
+		}
+		return money;
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={1,5,9,3,8,6};
+		System.out.println(obj.profit(arr));
+	}
+}
+*/

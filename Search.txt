@@ -1,0 +1,24 @@
+class Fun{
+	int search(int[] arr,int x){
+		int start=0;
+		int end=arr.length-1;
+		while(start<=end){
+			if(arr[start]==x){
+				return start;
+			}
+			if(arr[end]==x){
+				return end;
+			}
+			start=start+1;
+			end=end-1;
+		}
+		return -1;
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={5,4,3,11,6,1,10};
+		System.out.print(obj.search(arr,60));
+	}
+}

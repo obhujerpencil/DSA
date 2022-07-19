@@ -1,0 +1,29 @@
+class Fun{
+	int circularMax(int[] arr){
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+			int count=0;
+			for(int j=i;j<arr.length;j++){
+				count=count+arr[j];
+				if(count>max){
+					max=count;
+				}
+			}
+			//For circular part
+			for(int k=0;k<i;k++){
+				count=count+arr[k];
+				if(count>max){
+					max=count;
+				}
+			}
+		}
+		return max;
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={5,-2,3,4};
+		System.out.println(obj.circularMax(arr));
+	}
+}

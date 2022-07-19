@@ -1,0 +1,30 @@
+class Fun{
+	boolean delete(int[] arr,int x){
+		int z=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]==x){
+				z=i;
+				break;
+			}
+		}
+		if(z!=Integer.MIN_VALUE){
+			for(int i=z;i<arr.length-1;i++){
+				arr[i]=arr[i+1];
+			}
+			arr[arr.length-1]=0;
+			//printing the result
+			for(int i=0;i<arr.length;i++){
+				System.out.print(arr[i]+" ");
+			}
+			return true;
+		}
+		return false;	
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Fun obj=new Fun();
+		int[] arr={5,4,3,11,6,1,10};
+		obj.delete(arr,6);
+	}
+}
